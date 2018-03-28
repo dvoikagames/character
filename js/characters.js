@@ -119,6 +119,15 @@ Characters.prototype = {
         this.createSprites();
         this.createButtons();
         this.refresh();
+        this.resize();
+
+        window.addEventListener('resize', this.resize.bind(this));
+    },
+
+    resize: function () {
+            this.app.view.style.position = 'absolute';
+            this.app.view.style.left = ((window.innerWidth - this.app.view.width) >> 1) + 'px';
+            this.app.view.style.top = ((window.innerHeight - this.app.view.height) >> 1) + 'px';
     },
 
     createButtons: function () {
